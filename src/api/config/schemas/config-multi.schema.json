@@ -1,0 +1,11 @@
+{
+  "anyOf": [
+    { "$ref": "./config.schema.json#" },
+    {
+      "type": ["array"],
+      "items": [
+        { "$ref": "./config.schema.json#" }
+      ]
+    }
+  ]
+}

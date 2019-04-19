@@ -1,0 +1,222 @@
+{
+  "definitions": {
+    "turn": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "turnId": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string"
+        },
+        "convId": {
+          "type": "string"
+        },
+        "turnStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "turnEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "question": {
+          "type": "object",
+          "properties": {
+            "utterances": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/utterance"
+              }
+            }
+          }
+        },
+        "context": {
+          "$ref": "#/definitions/context"
+        },
+        "reply": {
+          "type": "object",
+          "properties": {
+            "utterances": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/utterance"
+              }
+            }
+          }
+        },
+        "state": {
+          "$ref": "#/definitions/state"
+        },
+        "path": {
+          "$ref": "#/definitions/path"
+        }
+      }
+    },
+    "utterance": {
+      "type": "object",
+      "properties": {
+        "text": {},
+        "purpose": {},
+        "classifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/classification"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entity"
+          }
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/concept"
+          }
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "classification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "confidence": {},
+        "derivedFrom": {}
+      },
+      "required": [
+        "name",
+        "value",
+        "derivedFrom"
+      ]
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "literals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "derivedFrom": {}
+      },
+      "required": [
+        "name",
+        "value",
+        "derivedFrom"
+      ]
+    },
+    "concept": {
+      "type": "object",
+      "properties": {
+        "name": {},
+        "value": {},
+        "derivedFrom": {}
+      },
+      "required": [
+        "name",
+        "value",
+        "derivedFrom"
+      ]
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userContext": {
+          "type": "object"
+        },
+        "conversationContext": {
+          "type": "object"
+        },
+        "userData": {
+          "type": "object"
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "turnCounter": {
+          "type": "integer"
+        },
+        "controllerStates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/controllerState"
+          }
+        },
+        "rulesetStates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rulesetState"
+          }
+        }
+      }
+    },
+    "controllerState": {
+      "type": "object",
+      "properties": {
+        "configId": {
+          "$ref": "#/definitions/enumConfigId"
+        },
+        "nextEval": {
+          "type": "string"
+        }
+      }
+    },
+    "rulesetState": {
+      "type": "object",
+      "properties": {
+        "rulesetId": {
+          "type": "string"
+        },
+        "rulesetConvId": {
+          "type": "string"
+        },
+        "rulesetContext": {
+          "type": "object"
+        }
+      }
+    },
+    "path": {
+      "type": "object"
+    },
+    "enumConfigId": {
+      "type": "string",
+      "enum": [
+        "IB_reg",
+        "some_other_product"
+      ]
+    }
+  }
+}

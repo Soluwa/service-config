@@ -1,0 +1,36 @@
+{
+  "$id": "config.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["productId", "variantId", "weight"],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Document ID"
+    },
+    "_rev": {
+      "type": "string",
+      "description": "Revision ID, supply when updating a document"
+    },
+    "productId": {
+      "type": "string",
+      "description": "Adoption product identifier",
+      "example": "divr"
+    },
+    "variantId": {
+      "type": "string",
+      "description": "Identifer for config variant",
+      "example": "default"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "feeds": {
+      "type": "object",
+      "description": "Define configuration used by data feeds"
+    }
+  }
+}

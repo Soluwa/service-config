@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "jsx-a11y/href-no-hash": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_rev",  "_doc", "__v"] }],
+    "import/prefer-default-export": "off"
+  }
+}

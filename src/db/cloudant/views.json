@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "_design/product",
+    "views": {
+      "product_list": {
+        "map": "function (doc) {\n  emit([doc.productId, doc.variantId], 1);\n}",
+        "reduce": "_count"
+      }
+    },
+    "language": "javascript"
+  }
+]

@@ -1,0 +1,54 @@
+path: .
+name: sc-caf-service-config-review
+memory: 512M
+instances: 1
+org: POC21_CognitiveComputing
+domain: lbg.eu-gb.mybluemix.net
+env:
+  NODE_ENV: development
+  DB_COLLECTION: 'cbaas-product'
+  ALLOWED_KEYS: "[{\"key\":\"cbaas-review\",\"secret\":\"62eed7edd780281c\"}]"
+  API_KEY: 'cbaas-review'
+  API_SECRET: '62eed7edd780281c'
+services:
+  - CBaaS-Log-Drain
+applications:
+  # CBAAS-DATA-REVIEW
+  - name: sc-caf-service-config-review-cbaas-data-review
+    space: CBAAS-DATA-REVIEW
+    env:
+      CONFIG_PRIVATE_KEY: "-----BEGIN RSA PRIVATE KEY-----\nProc-Type: 4,ENCRYPTED\nDEK-Info: AES-256-CBC,7316CEF40D1F2F383617080D5F07E389\n\nVcBq2Wg4um4/ckn9LEJ3eK5igZRr4LT/q4dohkdMqnmQsD3Sx0rAI1EBcdg1cGaR\nkCcJULbd9VRibU4ifiFBFi7C7Mg3HIY2ObJsKKhx1HzmFpNNVf3Y6h7ddsuic2vv\nDUFgwnjf+v7b6GAPBp2Fntns71GKzCJ69idf8yvDIT7+smS+zhSvOODWUzHqAcjz\nZ1qzYH1uxMtXQAjy2mR2/D+mnTNEtsWSwzPpcjhTfl3bUeKXVUQEAjyoBJ+7HMwJ\nDB1oQYUoRBaldg+57THTkz05pnbglQQT17m8GUgbq8y9CKD0M8M3CKBvltcc/bsq\n3wsDJQorQdV4W0amsxwz0ZbN0J8zRzUDNMkQTUwLbt13F/PCYcMIkVUTDvWj6DWF\n4Uw0hJFNypOlD9AwELOkdf23IjifFPmejXOQoT/CatwkP32fNDfbsGVZ344gTQ4z\njg2yDwhxIHbuQAqMbRy+3iJ810VOcdrMEhPZiOZg8kLtOuccf7VBdYj4eAclQqoc\n3gP3ZYqqT2Z+A6mjhqhHIypD2WQHxh3w+NuDdc4lmjuZyHdK9CPSPcR6cdd3cmLY\nfSsCjyRXRvMbAmjVsFrrsLCs217HGXkIz9R/32IGWUM0f2aXIZk1j18EZzjTdYOg\ngisC5dhSIPsYLehFkbJe/3tHvNUkQNaKTk/fa3zRjpn4sZtaqAeG9PF6d3bHiN9W\n/6pODyLfvZfT0jvVbzjTkkCSSOlfHltyz1++BaTdNXgMDRvXyYPD1IXrsC8PTkRd\noD1w4D4EnxP43r2tk6CW6G0A9bIGggKvgjF5iVzKpp46RfWgjjigZsKykdrYjGUb\nGDLcwyU84UVv8FmHY3UUK5yjSIwD7rdHMTMlghmcastPE55VaIg/Ut3YxsV808iW\nk6o+KZLyeHcJUUuITZHkMNiZsS8tTTvxHE+98FvDXLKCDUlTFeFGWPq0yTKmeORC\nT61ac6TwKyO6ehF0e/gRcK+yB2akPqIVpqPI78sMdDf2AsyAGfywNu81TDjpZJ5o\n8RDPQzUG/kUZZGRZ+sv001GultCc6/ZlYq5JStrmOzzyDcrcALZP4rySCmVxuE7G\nnewPo20OtvNWWiF+nwR7/alpR5USH8SrSqMBLsZHhdv1X5IGbwRwAYpDFkX1gYR0\nEUbhvG4Flyw6I/BTblm1ze/rrKB4FW2gXRzhaQVKOt7pLmn4qxL//fvvaxpIAMCq\n564jgbbWxYr0iSnjMQ3HRD5x4S9JZfjJM6MvNO9Dy9MmwGjeUk4QTLhXvVWFGe+G\nOJVt0ap4aAQAwqNFUx5jnYgeYs/CaLIonsTL0F/BKCvgRRJ7lafYjpkLP5RjSxf5\nS38bcQnGioFjox0k4wnWFUDxjcjllDyQgzwSVcIwc3k37c5Y1rlqFRE1NdfqKjkl\nzfHUluoilShAbVaLd46IRXB501O9Zd4YBBiCGpf5WbsxUjtjTKL1/otepwoFfUqW\nHS7XLGNYAiAs+InzgDdn6j83jiaPQR9/icQ4HTktM8+M9q4xyDl9RsHPfdnFaJgY\nWDfdssnBm2dEImOW/TwXgScD7Ai3e60Mee0+mn0ARvOQqttlzI3tYmB3N7BJZAsX\n-----END RSA PRIVATE KEY-----"
+      CONFIG_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjXC2AqZyz6yQ3F/vmOw\nEUJo3yeNNVuuJincl5rK+tbwjaDcBSxdVVcJWGHe9a/JXrj10LuTptq16phJd1Ya\nbzCSqBivKGBDrJxLY5euoZ1ChvB8gIo1qH5zwy3obDpqQ1Av1PGVZgaaOK8tAFKI\nP+TBpb+iCgL9MOu3MBM0mYcArKGpJWEhdG8/h/heB8jgcMuAvdNehFPUM7Ec47E1\nlV8Wlgfel5NZ7b2sanOIZj+K6aPWlBdFaGBqhfBinaZLTHsez7WMSViTCVyVtPb6\njQPs5l8Ebv0eNue13gI/L2dOYHHEuejHr62T89CtMn9dHsKbzRacDv9bU4yMWrgR\n8wIDAQAB\n-----END PUBLIC KEY-----"
+      CONFIG_PASSPHRASE: '5b3ff744-7607-4b40-bb04-414a8f4f5788'
+      CBAAS_URL: 'https://sc-caf-service-gateway-tooling-cbaas-data-review.lbg.eu-gb.mybluemix.net/api'
+      CAF_ENV: 'cbaas-data-review'
+      DB_URL: 'https://3c5ea03c-8eb2-458f-9ca0-d3c3b760159a-bluemix.cloudant.com'
+      DB_USER: '3c5ea03c-8eb2-458f-9ca0-d3c3b760159a-bluemix'
+      DBA_USER: '3c5ea03c-8eb2-458f-9ca0-d3c3b760159a-bluemix'
+      DB_PASSWORD: '599702fd7ed77bc96faef2bda6cd7f59883072a827dd31dfbee7205a79d478b5'
+      DBA_PASSWORD: '599702fd7ed77bc96faef2bda6cd7f59883072a827dd31dfbee7205a79d478b5'
+  # CBAAS-DATA-REVIEW_UAT
+  - name: sc-caf-service-config-review-cbaas-data-review-uat
+    space: CBAAS-DATA-REVIEW-UAT
+    env:
+      CONFIG_PRIVATE_KEY: "-----BEGIN RSA PRIVATE KEY-----\nProc-Type: 4,ENCRYPTED\nDEK-Info: AES-256-CBC,7316CEF40D1F2F383617080D5F07E389\n\nVcBq2Wg4um4/ckn9LEJ3eK5igZRr4LT/q4dohkdMqnmQsD3Sx0rAI1EBcdg1cGaR\nkCcJULbd9VRibU4ifiFBFi7C7Mg3HIY2ObJsKKhx1HzmFpNNVf3Y6h7ddsuic2vv\nDUFgwnjf+v7b6GAPBp2Fntns71GKzCJ69idf8yvDIT7+smS+zhSvOODWUzHqAcjz\nZ1qzYH1uxMtXQAjy2mR2/D+mnTNEtsWSwzPpcjhTfl3bUeKXVUQEAjyoBJ+7HMwJ\nDB1oQYUoRBaldg+57THTkz05pnbglQQT17m8GUgbq8y9CKD0M8M3CKBvltcc/bsq\n3wsDJQorQdV4W0amsxwz0ZbN0J8zRzUDNMkQTUwLbt13F/PCYcMIkVUTDvWj6DWF\n4Uw0hJFNypOlD9AwELOkdf23IjifFPmejXOQoT/CatwkP32fNDfbsGVZ344gTQ4z\njg2yDwhxIHbuQAqMbRy+3iJ810VOcdrMEhPZiOZg8kLtOuccf7VBdYj4eAclQqoc\n3gP3ZYqqT2Z+A6mjhqhHIypD2WQHxh3w+NuDdc4lmjuZyHdK9CPSPcR6cdd3cmLY\nfSsCjyRXRvMbAmjVsFrrsLCs217HGXkIz9R/32IGWUM0f2aXIZk1j18EZzjTdYOg\ngisC5dhSIPsYLehFkbJe/3tHvNUkQNaKTk/fa3zRjpn4sZtaqAeG9PF6d3bHiN9W\n/6pODyLfvZfT0jvVbzjTkkCSSOlfHltyz1++BaTdNXgMDRvXyYPD1IXrsC8PTkRd\noD1w4D4EnxP43r2tk6CW6G0A9bIGggKvgjF5iVzKpp46RfWgjjigZsKykdrYjGUb\nGDLcwyU84UVv8FmHY3UUK5yjSIwD7rdHMTMlghmcastPE55VaIg/Ut3YxsV808iW\nk6o+KZLyeHcJUUuITZHkMNiZsS8tTTvxHE+98FvDXLKCDUlTFeFGWPq0yTKmeORC\nT61ac6TwKyO6ehF0e/gRcK+yB2akPqIVpqPI78sMdDf2AsyAGfywNu81TDjpZJ5o\n8RDPQzUG/kUZZGRZ+sv001GultCc6/ZlYq5JStrmOzzyDcrcALZP4rySCmVxuE7G\nnewPo20OtvNWWiF+nwR7/alpR5USH8SrSqMBLsZHhdv1X5IGbwRwAYpDFkX1gYR0\nEUbhvG4Flyw6I/BTblm1ze/rrKB4FW2gXRzhaQVKOt7pLmn4qxL//fvvaxpIAMCq\n564jgbbWxYr0iSnjMQ3HRD5x4S9JZfjJM6MvNO9Dy9MmwGjeUk4QTLhXvVWFGe+G\nOJVt0ap4aAQAwqNFUx5jnYgeYs/CaLIonsTL0F/BKCvgRRJ7lafYjpkLP5RjSxf5\nS38bcQnGioFjox0k4wnWFUDxjcjllDyQgzwSVcIwc3k37c5Y1rlqFRE1NdfqKjkl\nzfHUluoilShAbVaLd46IRXB501O9Zd4YBBiCGpf5WbsxUjtjTKL1/otepwoFfUqW\nHS7XLGNYAiAs+InzgDdn6j83jiaPQR9/icQ4HTktM8+M9q4xyDl9RsHPfdnFaJgY\nWDfdssnBm2dEImOW/TwXgScD7Ai3e60Mee0+mn0ARvOQqttlzI3tYmB3N7BJZAsX\n-----END RSA PRIVATE KEY-----"
+      CONFIG_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjXC2AqZyz6yQ3F/vmOw\nEUJo3yeNNVuuJincl5rK+tbwjaDcBSxdVVcJWGHe9a/JXrj10LuTptq16phJd1Ya\nbzCSqBivKGBDrJxLY5euoZ1ChvB8gIo1qH5zwy3obDpqQ1Av1PGVZgaaOK8tAFKI\nP+TBpb+iCgL9MOu3MBM0mYcArKGpJWEhdG8/h/heB8jgcMuAvdNehFPUM7Ec47E1\nlV8Wlgfel5NZ7b2sanOIZj+K6aPWlBdFaGBqhfBinaZLTHsez7WMSViTCVyVtPb6\njQPs5l8Ebv0eNue13gI/L2dOYHHEuejHr62T89CtMn9dHsKbzRacDv9bU4yMWrgR\n8wIDAQAB\n-----END PUBLIC KEY-----"
+      CONFIG_PASSPHRASE: '5b3ff744-7607-4b40-bb04-414a8f4f5788'
+      CBAAS_URL: 'https://sc-caf-service-gateway-tooling-cbaas-data-review-uat.lbg.eu-gb.mybluemix.net/api'
+      CAF_ENV: 'cbaas-data-review-uat'
+      DB_URL: 'https://3cd60f35-aa40-48ab-8b80-01cd6f95253c-bluemix.cloudant.com'
+      DB_USER: '3cd60f35-aa40-48ab-8b80-01cd6f95253c-bluemix'
+      DBA_USER: '3cd60f35-aa40-48ab-8b80-01cd6f95253c-bluemix'
+      DB_PASSWORD: '2ff1e86c25b0a6a1900825d6876326e0a3c57097c73eb0a230bb772c3fa19c86'
+      DBA_PASSWORD: '2ff1e86c25b0a6a1900825d6876326e0a3c57097c73eb0a230bb772c3fa19c86'
+  - name: sc-caf-service-config-review-pre-pilot
+    space: POC21_CognitiveReview
+    org: Pre-Pilot
+    env:
+      NODE_ENV: 'production'
+  - name: sc-caf-service-config-review-pilot
+    space: POC21_CognitiveReview
+    org: Pilot
+    env:
+      NODE_ENV: 'production'
+      

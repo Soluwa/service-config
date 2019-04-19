@@ -1,0 +1,204 @@
+[
+  {
+    "_id": "cbaas:default",
+    "productId": "cbaas",
+    "variantId": "default",
+    "weight": 1,
+    "feeds": {
+      "tableau": {
+        "schemas": {
+          "events": [
+            { "id": "year", "alias": "year", "dataType": "string" },
+            { "id": "week", "alias": "week", "dataType": "string" },
+            { "id": "endpoint", "alias": "endpoint", "dataType": "string" },
+            { "id": "count", "alias": "count", "dataType": "int" }
+          ],
+          "intents": [
+            { "id": "year", "alias": "year", "dataType": "string" },
+            { "id": "week", "alias": "week", "dataType": "string" },
+            { "id": "intent", "alias": "endpoint", "dataType": "string" },
+            { "id": "count", "alias": "count", "dataType": "int" }
+          ],
+          "latest": [
+            { "id": "id", "alias": "id", "dataType": "string" },
+            { "id": "startTime", "alias": "startTime", "dataType": "string" },
+            { "id": "latestTime", "alias": "latestTime", "dataType": "string" },
+            { "id": "configId", "alias": "configId", "dataType": "string" },
+            { "id": "brand", "alias": "brand", "dataType": "string" },
+            { "id": "channel", "alias": "channel", "dataType": "string" },
+            { "id": "IntRec", "alias": "IntRec", "dataType": "string" },
+            { "id": "TopRec", "alias": "TopRec", "dataType": "string" },
+            { "id": "ConEng", "alias": "ConEng", "dataType": "string" },
+            { "id": "confidence", "alias": "confidence", "dataType": "string" },
+            {
+              "id": "closeReason",
+              "alias": "closeReason",
+              "dataType": "string"
+            },
+            { "id": "Catch", "alias": "Catch", "dataType": "int" },
+            { "id": "IntClar", "alias": "IntClar", "dataType": "string" },
+            { "id": "Security", "alias": "Security", "dataType": "int" },
+            {
+              "id": "New_Utterance",
+              "alias": "New_Utterance",
+              "dataType": "int"
+            },
+            { "id": "Looping", "alias": "Looping", "dataType": "int" },
+
+            { "id": "Greeting", "alias": "Greeting", "dataType": "int" },
+            { "id": "ConEnd", "alias": "ConEnd", "dataType": "int" },
+            { "id": "End_Fail", "alias": "End_Fail", "dataType": "int" },
+            { "id": "End_Suc", "alias": "End_Suc", "dataType": "int" },
+            { "id": "Greeting", "alias": "Greeting", "dataType": "int" },
+            {
+              "id": "Triggered_Res_Flow",
+              "alias": "Triggered_Res_Flow",
+              "dataType": "int"
+            },
+            { "id": "Timeout", "alias": "Timeout", "dataType": "int" },
+
+            {
+              "id": "HO_Agt_Complaint",
+              "alias": "HO_Agt_Complaint",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Agt_Confirmed",
+              "alias": "HO_Agt_Confirmed",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Agt_Connect",
+              "alias": "HO_Agt_Connect",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Agt_Declined",
+              "alias": "HO_Agt_Declined",
+              "dataType": "int"
+            },
+            { "id": "HO_Agt_End", "alias": "HO_Agt_End", "dataType": "int" },
+            { "id": "HO_Agt_Out", "alias": "HO_Agt_Out", "dataType": "int" },
+            { "id": "HO_Agt_Safe", "alias": "HO_Agt_Safe", "dataType": "int" },
+            {
+              "id": "HO_Agt_Swear",
+              "alias": "HO_Agt_Swear",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Agt_Triggered",
+              "alias": "HO_Agt_Triggered",
+              "dataType": "int"
+            },
+            { "id": "HO_Agt_C2c", "alias": "HO_Agt_C2c", "dataType": "int" },
+            { "id": "HO_Agt_Call", "alias": "HO_Agt_Call", "dataType": "int" },
+            {
+              "id": "HO_Not_Understood",
+              "alias": "HO_Not_Understood",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Failed_Twice",
+              "alias": "HO_Failed_Twice",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Something_Else",
+              "alias": "HO_Something_Else",
+              "dataType": "int"
+            },
+            {
+              "id": "HO_Not_Resolved",
+              "alias": "HO_Not_Resolved",
+              "dataType": "int"
+            },
+            { "id": "HO_Security", "alias": "HO_Security", "dataType": "int" },
+            { "id": "HO_Accepted", "alias": "HO_Accepted", "dataType": "int" },
+            { "id": "HO_Rejected", "alias": "HO_Rejected", "dataType": "int" },
+            { "id": "HO_Agt_MOT", "alias": "HO_Agt_MOT", "dataType": "int" },
+            {
+              "id": "HO_By_Design",
+              "alias": "HO_By_Design",
+              "dataType": "int"
+            },
+            { "id": "Complain", "alias": "Complain", "dataType": "string" },
+            { "id": "Ejector", "alias": "Ejector", "dataType": "int" },
+            {
+              "id": "Disambiguation",
+              "alias": "Disambiguation",
+              "dataType": "int"
+            },
+            { "id": "endpoint", "alias": "endpoint", "dataType": "string" },
+            {
+              "id": "intentUnderstood",
+              "alias": "intentUnderstood",
+              "dataType": "string"
+            },
+            {
+              "id": "topicUnderstood",
+              "alias": "topicUnderstood",
+              "dataType": "string"
+            },
+            {
+              "id": "conversationUnderstandable",
+              "alias": "conversationUnderstandable",
+              "dataType": "string"
+            },
+            {
+              "id": "multipleIntents",
+              "alias": "multipleIntents",
+              "dataType": "bool"
+            },
+            {
+              "id": "followUpQuestion",
+              "alias": "followUpQuestion",
+              "dataType": "bool"
+            },
+            { "id": "outOfScope", "alias": "outOfScope", "dataType": "bool" },
+            {
+              "id": "expectedPerformance",
+              "alias": "expectedPerformance",
+              "dataType": "string"
+            },
+            {
+              "id": "otherReason",
+              "alias": "otherReason",
+              "dataType": "string"
+            },
+            {
+              "id": "conversationRating",
+              "alias": "conversationRating",
+              "dataType": "string"
+            },
+            {
+              "id": "misclassificationAreaForImprovement",
+              "alias": "misclassificationAreaForImprovement",
+              "dataType": "string"
+            },
+            {
+              "id": "improvementAreaForImprovement",
+              "alias": "improvementAreaForImprovement",
+              "dataType": "string"
+            },
+            {
+              "id": "defectAreaForImprovement",
+              "alias": "defectAreaForImprovement",
+              "dataType": "string"
+            },
+            {
+              "id": "newIntentAreaForImprovement",
+              "alias": "newIntentAreaForImprovement",
+              "dataType": "string"
+            },
+            {
+              "id": "otherAreaForImprovement",
+              "alias": "otherAreaForImprovement",
+              "dataType": "string"
+            }
+          ]
+        },
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic2MtY2FmLXRhYmxlYXUiLCJpYXQiOjE1MDE4NTU1OTh9.VMxTJKl1iIveNkohmfBLJFXGw7BASpi-Wq6ilO3_y9g"
+      }
+    }
+  }
+]

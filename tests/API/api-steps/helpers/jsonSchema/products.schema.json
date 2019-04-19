@@ -1,0 +1,40 @@
+{
+  "$id": "products.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["statusCode","data"],
+  "properties": {
+    "statusCode": {
+      "type": "number",
+      "description": "request status code"
+    },
+    "data": {
+      "type": "object",
+      "required": ["products"],
+      "properties": {
+        "products": {
+          "type": "array",
+          "description": "Array of the defined product configs",
+          "items": [
+            {
+              "type": "object",
+              "required": ["productId", "variants"],
+              "properties": {
+                "productId": {
+                  "type": "string",
+                  "description": "Adoption product identifier",
+                  "example": "divr"
+                },
+                "variants": {
+                  "type": "array",
+                  "description": "An array of the variantId for the given product",
+                  "example": ["nITYt", "VM3AO"]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

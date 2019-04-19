@@ -1,0 +1,90 @@
+{
+  "name": "sc-caf-service-config-review",
+  "project": "cbaas",
+  "version": "1.0.3",
+  "main": "src/index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "analysis": "rm -rf analysis && es6-plato --recurse --exclude spec.js --dir analysis --title 'Config Service Source Analysis' src",
+    "deploy:ci": "(cd dist && cf target -o POC21_CognitiveComputing -s cbaas-data-review && cf push sc-caf-service-config-review-cbaas-data-review)",
+    "dist": "rm -rf dist && mkdir -p dist && babel src -s -D -d dist --ignore *.spec.js && cp package.json dist/ && cp package-lock.json dist/ && cp .npmrc dist/ && cp manifest.yml dist/ || :",
+    "format": "prettier --single-quote --trailing-comma es5 --write '{src,tests}/**/*.js'",
+    "format:verify": "prettier --single-quote --trailing-comma es5 --list-different '{src,tests}/**/*.js'",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix",
+    "start": "node index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "tool": "cbaas"
+  },
+  "dependencies": {
+    "ajv": "6.7.0",
+    "bluemix-autoscaling-agent": "1.0.14",
+    "body-parser": "1.18.3",
+    "boom": "7.3.0",
+    "cbaas-module-store": "1.0.1",
+    "cors": "2.8.3",
+    "express": "4.16.3",
+    "helmet": "3.15.0",
+    "jsonwebtoken": "8.4.0",
+    "lodash": "4.17.11",
+    "mongoose": "5.4.14",
+    "randomstring": "1.1.5",
+    "request-promise-native": "1.0.5",
+    "sc-caf-middleware": "4.0.5",
+    "sc-caf-module-logger": "3.3.2",
+    "swagger-ui-express": "3.0.8",
+    "url-join": "4.0.0",
+    "yamljs": "0.3.0"
+  },
+  "devDependencies": {
+    "@cloudant/cloudant": "^2.2.0",
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "cbaas-recipes": "1.3.1",
+    "chai": "^4.1.2",
+    "cloud-foundry-client": "^1.1.0",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^4.0.4",
+    "cucumber-pretty": "^1.5.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "https": "1.0.0",
+    "jest": "^23.6.0",
+    "jsonfile": "^4.0.0",
+    "jsonschema": "^1.2.0",
+    "prettier": "^1.15.3",
+    "promise-retry": "^1.1.1",
+    "request": "^2.81.0",
+    "retry": "^0.10.1",
+    "superagent": "^3.6.0",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "jest": {
+    "verbose": true,
+    "coverageDirectory": "coverage/",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules/",
+      "dist/",
+      "doc/",
+      "coverage/",
+      "src/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 75
+      }
+    }
+  }
+}

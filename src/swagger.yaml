@@ -1,0 +1,143 @@
+swagger: '2.0'
+schemes:
+  - https
+  - http
+info:
+  version: 1.0.0
+  title: tooling-service-config
+security:
+  - apiName: []
+  - apiSecret: []
+securityDefinitions:
+  apiName:
+    name: x-caf-api-key
+    type: apiKey
+    description: Username to authenticate with service.
+    in: header
+  apiSecret:
+    name: x-caf-api-secret
+    type: apiKey
+    description: password to authenticate with service.
+    in: header
+paths:
+  /product:
+    post:
+      description: Post one or many config documents.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/config'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorised - review api key and secret.
+    put:
+      description: Update one or many config documents. Use upsert=true in the query to include new configs.
+      parameters:
+        - in: query
+          name: upsert
+          type: boolean
+          description: Will add new configs if included in request.
+          required: false
+        - in: body
+          name: body
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/config'
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorised - review api key and secret.
+    get:
+      description: Get summary of available configs.
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              productId:
+                $ref: '#/definitions/productId'
+              variants:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      $ref: '#/definitions/productId'
+                    variantId:
+                      $ref: '#/definitions/variantId'
+                    weight:
+                      type: number
+                      example: 1
+                    url:
+                      type: string
+                      example: '/product/divr/default'
+  /product/$productId:
+    get:
+      description: Get all configuration documents by productId
+      parameters:
+        - in: path
+          required: true
+          name: productId
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              - $ref: '#/definitions/config'
+  /product/$productId/$variantId:
+    get:
+      description: Get specific document by product and variant IDs
+      parameters:
+        - in: path
+          required: true
+          name: productId
+          type: string
+        - in: path
+          required: true
+          name: variantId
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/config'
+definitions:
+  productId:
+    type: string
+    description: Adoption identifier
+    example: 'divr'
+  variantId:
+    type: string
+    description: Identifer for config variant
+    example: 'default'
+  config:
+    type: object
+    required:
+      - productId
+      - variantId
+      - weight
+    properties:
+      _id:
+        description: 'Document unique ID'
+      _rev:
+        description: 'Revision nonce, include when updating documents.'
+      productId:
+        $ref: '#/definitions/productId'
+      variantId:
+        $ref: '#/definitions/variantId'
+      weight:
+        type: number
+        example: 1
+      feeds:
+        type: object
+        description: 'Define configuration used by data feeds'
